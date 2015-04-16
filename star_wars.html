@@ -2180,7 +2180,12 @@
             
             var paper = Snap('#svg1');
             // console.log(paper);
-            // var pimg1 = paper.image("test.jpeg", 10, 10, 300, 300);//.toPattern(0,0,10,10);
+            var pic2 = paper.image("test2.jpeg", 500, 500, 300, 300).toPattern(500,500,300,300);
+            pic2.toDefs();
+            paper.append(pic2);
+
+            // var pic_id = 'pic2';
+            // pic2.attr({ id: pic_id });
             // var pimg2 = paper.image("test2.jpeg", 100, 400, 300, 300);//.toPattern(0,0,10,10);
             // var bigCircle = paper.circle(150, 150, 100);
             // var p = paper.path("M10-5-10,15M15,0,0,15M0-5-20,15").attr({
@@ -2195,8 +2200,12 @@
                 var p = el.select('path');
                 // console.log(p);
                 p.click(function(event) {
-                    p.attr({ 'fill': 'url(#img1)'})
-                    console.log("elemetn clikced");
+                    if (p.attr().fill != undefined) {
+                        p.attr("fill", pic2);
+                        console.log(p.attr());
+                        // p.attr("fill", 'url(#img1)');
+                        console.log("element clicked");
+                    }
                 });
                 someObj[ el.attr('fill') ] = p.attr('d');
             });
