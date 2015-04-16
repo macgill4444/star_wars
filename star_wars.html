@@ -2200,11 +2200,13 @@
                 var p = el.select('path');
                 // console.log(p);
                 p.click(function(event) {
-                    if (p.attr().fill != undefined) {
+                    if (p.attr().fill == "#FFF200") {
                         p.attr("fill", pic2);
-                        console.log(p.attr());
-                        // p.attr("fill", 'url(#img1)');
                         console.log("element clicked");
+                    } else if (p.attr().fill == "#ED1C24") {
+                        p.attr("fill", 'url(#img1)');
+                    } else if (p.attr().fill == "#00A651") {
+                        p.attr("fill", 'url(#img1)');
                     }
                 });
                 someObj[ el.attr('fill') ] = p.attr('d');
